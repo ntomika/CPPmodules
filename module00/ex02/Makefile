@@ -1,5 +1,5 @@
-NAME		= megaphone
-SRCS		= megaphone.cpp
+NAME		= account
+SRCS		= test.cpp Account.cpp 
 CXX			= clang++
 CXXFLAGS	= -Wall -Wextra -Werror
 OBJS		= $(SRCS:.cpp=.o)

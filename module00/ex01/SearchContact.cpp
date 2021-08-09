@@ -1,5 +1,16 @@
 #include "contacts.hpp"
 
+void	ContactData::GetInfo()
+{
+	std::cout << "~~~~~~~" << std::endl;
+	std::cout << "First name:	" << first_name << std::endl;
+	std::cout << "Last name:	" <<last_name << std::endl;
+	std::cout << "Nickname:	" << nickname << std::endl;
+	std::cout << "Phone number:	" << phone_number << std::endl;
+	std::cout << "Darkest secret:	" << darkest_secret << std::endl;
+	std::cout << "~~~~~~~" << std::endl;
+}
+
 void	ContactData::CheckSize(std::string name)
 {
 	int	c;
@@ -25,18 +36,6 @@ void	ContactData::PrintAllBook()
 	std::cout << std::endl;
 }
 
-void	ContactData::GetInfo()
-{
-	std::cout << "Info about contact " << index << ":" << std::endl;
-	std::cout << "~~~~~~~" << std::endl;
-	std::cout << "First name:	" << first_name << std::endl;
-	std::cout << "Last name:	" <<last_name << std::endl;
-	std::cout << "Nickname:	" << nickname << std::endl;
-	std::cout << "Phone number:	" << phone_number << std::endl;
-	std::cout << "Darkest secret:	" << darkest_secret << std::endl;
-	std::cout << "~~~~~~~" << std::endl;
-}
-
 void	PhoneBook::SearchContact()
 {
 	int			i;
@@ -56,7 +55,7 @@ void	PhoneBook::SearchContact()
 	{
 		std::cout << "Select contact index: ";
 		std::getline(std::cin, s);
-		if (s.size() != 1 && !(s[0] >= 48 && s[0] <= 55))
+		if (!(s[0] >= 48 && s[0] <= 55) || s.size() != 1)
 			std::cout << "Wrong index!" << std::endl;
 		else
 		{

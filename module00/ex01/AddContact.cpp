@@ -1,4 +1,8 @@
 #include "contacts.hpp"
+
+ContactData::ContactData(){}
+ContactData::~ContactData(){}
+
 void	ContactData::FirstName()
 {
 	std::cout << "Enter your first name: ";
@@ -29,13 +33,12 @@ void	ContactData::DarkestSecret()
 	std::getline (std::cin, darkest_secret);
 }
 
-
 void	PhoneBook::AddContact()
 {
 	if (count == 8)
 	{
 		count = 0;
-		list = 8;
+		list = -1;
 	}
 	contact[count].FirstName();
 	contact[count].LastName();

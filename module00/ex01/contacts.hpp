@@ -16,14 +16,18 @@ private:
 	std::string		darkest_secret;
 public:
 	int			index;
+
+	ContactData();
+	~ContactData();
+
 	void		FirstName(void);
 	void		LastName(void);
 	void		Nickname(void);
 	void		PhoneNumber(void);
 	void		DarkestSecret(void);
-	void		PrintAllBook(void);
 	void		GetInfo(void);
 	void		CheckSize(std::string name);
+	void		PrintAllBook(void);
 };
 
 class PhoneBook
@@ -33,6 +37,10 @@ private:
 	int			list;
 public:
 	int			count;
+	
+	PhoneBook();
+	~PhoneBook();
+
 	void		AddContact(void);
 	void		SearchContact(void);
 };
