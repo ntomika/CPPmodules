@@ -1,4 +1,37 @@
-#include "Contacts.hpp"
+#include "PhoneBook.hpp"
+
+ContactData::ContactData(){}
+ContactData::~ContactData(){}
+
+void	ContactData::FirstName()
+{
+	std::cout << "Enter your first name: ";
+	std::getline (std::cin, first_name);
+}
+
+void	ContactData::LastName()
+{
+	std::cout << "Enter your last name: ";
+	std::getline (std::cin, last_name);
+}
+
+void	ContactData::Nickname()
+{
+	std::cout << "Enter your nickname: ";
+	std::getline (std::cin, nickname);
+}
+
+void	ContactData::PhoneNumber()
+{
+	std::cout << "Enter your phone number: ";
+	std::getline (std::cin, phone_number);
+}
+
+void	ContactData::DarkestSecret()
+{
+	std::cout << "Enter your darkest secret: ";
+	std::getline (std::cin, darkest_secret);
+}
 
 int		ContactData::GetInfo()
 {
@@ -42,35 +75,4 @@ void	ContactData::PrintAllBook(int index)
 	std::cout << '|';
 	CheckSize(nickname);
 	std::cout << std::endl;
-}
-
-void	PhoneBook::SearchContact()
-{
-	int			i;
-	std::string	s;
-
-	i = -1;
-	if (count == 0)
-	{
-		std::cout << "Сontact list is empty." << std::endl;
-		return ;
-	}
-	std::cout << "     index|first name| last name|  nickname" << std::endl;
-	std::cout << "---------- ---------- ---------- ----------" << std::endl;
-	while (++i < 8)
-		contact[i].PrintAllBook(i);
-	while (1)
-	{
-		std::cout << "Select contact index: ";
-		std::getline(std::cin, s);
-		if (!(s[0] >= 48 && s[0] <= 55) || s.size() != 1)
-			std::cout << "Wrong index!" << std::endl;
-		else
-		{
-			if (contact[s[0] - '0'].GetInfo() == 1)
-				break ;
-			else
-				continue ;
-		}
-	}
 }

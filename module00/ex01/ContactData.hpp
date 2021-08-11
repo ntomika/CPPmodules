@@ -1,5 +1,5 @@
-#ifndef CONTACTS_HPP
-# define CONTACTS_HPP
+#ifndef CONTACTDATA_HPP
+# define CONTACTDATA_HPP
 
 #include <iostream>
 #include <string>
@@ -25,20 +25,6 @@ public:
 	int			GetInfo(void);
 	void		CheckSize(std::string name);
 	void		PrintAllBook(int index);
-};
-
-class PhoneBook
-{
-private:
-	ContactData	contact[8];
-	int			count;
-public:
-	PhoneBook();
-	~PhoneBook();
-	
-	void		Start(void);
-	void		AddContact(void);
-	void		SearchContact(void);
 };
 
 #endif
