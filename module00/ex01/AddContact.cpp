@@ -36,16 +36,12 @@ void	ContactData::DarkestSecret()
 void	PhoneBook::AddContact()
 {
 	if (count == 8)
-	{
-		count = 0;
-		list = -1;
-	}
+		this->count = 0;
 	contact[count].FirstName();
 	contact[count].LastName();
 	contact[count].Nickname();
 	contact[count].PhoneNumber();
 	contact[count].DarkestSecret();
-	contact[count].index = count;
 	std::cout << "Contact added successfully!" << std::endl << std::endl;
-	count++;
+	this->count++;
 }

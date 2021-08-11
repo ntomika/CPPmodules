@@ -3,12 +3,18 @@
 PhoneBook::PhoneBook(){}
 PhoneBook::~PhoneBook(){}
 
+void	PhoneBook::Start()
+{
+	this->count = 0;
+}
+
 int	main()
 {
-	std::string command;
+	std::string	command;
 	PhoneBook	book;
+	ContactData	contact;
 
-	book.count = 0;
+	book.Start();
 	while (1)
 	{
 		std::cout << "Select an option [ADD, SEARCH, EXIT]: ";
@@ -16,7 +22,7 @@ int	main()
 		std::cin.ignore(command.max_size(), '\n');
 		if (command == "EXIT")
 		{
-			std::cout << "You left the program." << std::endl;
+			std::cout << "You left the program. All contact data has been lost." << std::endl;
 			break ;
 		}
 		else if (command == "ADD")

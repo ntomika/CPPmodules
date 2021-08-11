@@ -1,7 +1,14 @@
 #include "Contacts.hpp"
 
-void	ContactData::GetInfo()
+int		ContactData::GetInfo()
 {
+	if (first_name.size() == 0 && last_name.size() == 0
+		&& nickname.size() == 0 && phone_number.size() == 0
+		&&darkest_secret.size() == 0)
+	{
+		std::cout << "Сontact information is empty" << std::endl;
+		return 0;
+	}
 	std::cout << "~~~~~~~" << std::endl;
 	std::cout << "First name:	" << first_name << std::endl;
 	std::cout << "Last name:	" <<last_name << std::endl;
@@ -9,6 +16,7 @@ void	ContactData::GetInfo()
 	std::cout << "Phone number:	" << phone_number << std::endl;
 	std::cout << "Darkest secret:	" << darkest_secret << std::endl;
 	std::cout << "~~~~~~~" << std::endl;
+	return 1;
 }
 
 void	ContactData::CheckSize(std::string name)
@@ -17,7 +25,7 @@ void	ContactData::CheckSize(std::string name)
 
 	c = name.size();
 	if (c < 10)
-		std::cout << std::setw(10 - c) << ' ' << name;
+		std::cout << std::setfill(' ') << std::setw(10) << name;
 	else
 	{
 		std::cout << std::setw(9) << name.substr(0, 9);
@@ -25,7 +33,7 @@ void	ContactData::CheckSize(std::string name)
 	}
 }
 
-void	ContactData::PrintAllBook()
+void	ContactData::PrintAllBook(int index)
 {
 	std::cout << std::setw(10) << index << '|';
 	CheckSize(first_name);
@@ -48,9 +56,9 @@ void	PhoneBook::SearchContact()
 		return ;
 	}
 	std::cout << "     index|first name| last name|  nickname" << std::endl;
-	std::cout << "-------------------------------------------" << std::endl;
+	std::cout << "---------- ---------- ---------- ----------" << std::endl;
 	while (++i < 8)
-		contact[i].PrintAllBook();
+		contact[i].PrintAllBook(i);
 	while (1)
 	{
 		std::cout << "Select contact index: ";
@@ -59,8 +67,10 @@ void	PhoneBook::SearchContact()
 			std::cout << "Wrong index!" << std::endl;
 		else
 		{
-			contact[s[0] - '0'].GetInfo();
-			break ;
+			if (contact[s[0] - '0'].GetInfo() == 1)
+				break ;
+			else
+				continue ;
 		}
 	}
 }
