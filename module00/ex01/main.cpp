@@ -19,6 +19,8 @@ int	main()
 	{
 		std::cout << "Select an option [ADD, SEARCH, EXIT]: ";
 		std::getline (std::cin, command);
+		if (std::cin.eof())
+			return (0);
 		std::cin.ignore(command.max_size(), '\n');
 		if (command == "EXIT")
 		{
