@@ -1,6 +1,6 @@
 #include "Zombie.hpp"
 
-int	main()
+int	main(void)
 {
 	int	N = 5;
 	Zombie *horde = zombieHorde(N, "NAME");
