@@ -8,6 +8,7 @@ int	main(int ac, char **av)
 	std::string		s1;
 	std::string		s2;
 	std::string		fileName;
+	std::size_t		pos = 0;
 
 	if (ac != 4)
 	{
@@ -34,16 +35,20 @@ int	main(int ac, char **av)
 	while (!read.eof())
 	{
 		getline(read, str);
-		std::size_t pos = str.find(s1, 0);
-		if (pos == std::string::npos)
+		while (pos != std::string::npos)
 		{
-			write << str << std::endl;
-		}
-		else
-		{
-			write << str.substr(0, pos);
-			write << s2;
-			write << str.substr((pos + s1.size())) << std::endl;
+			pos = str.find(s1, 0);
+			if (pos == std::string::npos)
+			{
+				write << str << std::endl;
+			}
+			else
+			{
+				write << str.substr(0, pos);
+				str = str.substr(pos + s1.size());
+				write << s2;
+				// write << str.substr((pos + s1.size())) << std::endl;
+			}
 		}
 	}
 	read.close();

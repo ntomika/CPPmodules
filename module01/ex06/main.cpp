@@ -9,7 +9,7 @@ enum level
 	OTHER
 };
 
-level typeLevel(std::string type)
+level checkLevel(std::string type)
 {
 	level	ret = OTHER;
 	if (type == "DEBUG")
@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 		std::cout << "Bad number of arguments" << std::endl;
 		return 1;
 	}	
-	switch (typeLevel(av[1]))
+	switch (checkLevel(av[1]))
 	{
 	case DEBUG:
 		std::cout << "[ DEBUG ]" << std::endl;
