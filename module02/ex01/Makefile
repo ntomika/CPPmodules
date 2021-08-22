@@ -1,4 +1,4 @@
-NAME		= myOrthodoxClass
+NAME		= MoreUsefulFixedPointClass
 SRCS		= main.cpp Fixed.cpp
 CXX			= clang++
 CXXFLAGS	= -Wall -Wextra -Werror
