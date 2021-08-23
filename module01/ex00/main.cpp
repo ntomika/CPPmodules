@@ -2,12 +2,12 @@
 
 int	main(void)
 {
-	Zombie	*zombie1;
+	Zombie	*one;
 
-	zombie1 = newZombie("ntomika1");
-	zombie1->getName("ntomika1");
-	zombie1->announce();
-	delete zombie1;
+	one = newZombie("ntomika1");
+	one->getName("ntomika1");
+	one->announce();
+	delete one;
 	randomChump("ntomika2");
 
 	return 0;
