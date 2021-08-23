@@ -52,6 +52,11 @@ std::ostream& operator<< (std::ostream &out, const Fixed &fixed)
 	return out;
 }
 
+bool operator== (const Fixed &f1, const Fixed &f2)
+{
+	// return (f1._fixedPointValue == f2._fixedPointValue);
+}
+
 /* ------------------- */
 /* -> Методы класса <- */
 /* ------------------- */
@@ -75,4 +80,3 @@ int	Fixed::toInt(void) const
 {
 	return ((getRawBits()) / ((1 << _numberOfFractionalBits)));
 }
-

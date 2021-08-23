@@ -2,6 +2,10 @@
 
 const int	Fixed::_numberOfFractionalBits = 8;
 
+/* -------------------------------------------------------------------- */
+/* -> Конструкторы по-умолчани., контруктор копирования и деструктор <- */
+/* -------------------------------------------------------------------- */
+
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -19,12 +23,20 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
+/* ----------------------------------------*/
+/* -> Перегрузка оператора присваивания <- */
+/* --------------------------------------- */
+
 Fixed & Fixed::operator= (const Fixed &fixed)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	_fixedPointValue = fixed.getRawBits();
 	return (*this);
 }
+
+/* ------------------- */
+/* -> Методы класса <- */
+/* ------------------- */
 
 int	Fixed::getRawBits(void) const
 {
