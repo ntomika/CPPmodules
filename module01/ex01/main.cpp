@@ -2,10 +2,10 @@
 
 int	main(void)
 {
-	int	N = 5;
-	Zombie *horde = zombieHorde(N, "NAME");
+	int	N = 7;
+	Zombie *horde = zombieHorde(N, "Name");
 	for (int i = 0; i < N; i++)
-		horde->announce();
+		horde[i].announce();
 	delete[] horde;
 	return 0;
 }

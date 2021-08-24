@@ -35,23 +35,26 @@ int	main(int ac, char **av)
 	while (!read.eof())
 	{
 		getline(read, str);
+		pos = 0;
 		while (pos != std::string::npos)
 		{
 			pos = str.find(s1, 0);
 			if (pos == std::string::npos)
 			{
-				write << str << std::endl;
+				write << str;
+				if (!read.eof())
+					write << std::endl;
 			}
 			else
 			{
 				write << str.substr(0, pos);
 				str = str.substr(pos + s1.size());
 				write << s2;
-				// write << str.substr((pos + s1.size())) << std::endl;
 			}
 		}
 	}
 	read.close();
 	write.close();
+	std::cout << "File was successfully created and overwritten." << std::endl;
 	return 0;
 }

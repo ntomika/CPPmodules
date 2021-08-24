@@ -2,21 +2,21 @@
 
 std::string	Zombie::getName(std::string getname)
 {
-	this->name = getname;
-	return this->name;
+	this->_name = getname;
+	return this->_name;
 }
 
 Zombie::Zombie()
 {
-	std::cout << "Zombies horde was created" << std::endl;
+	std::cout << "Zombie was created" << std::endl;
 }
 Zombie::~Zombie()
 {
-	std::cout << "Zombie " << name
+	std::cout << "Zombie " << _name
 	<< " was killed" << std::endl;
 }
 
 void	Zombie::announce(void)
 {
-	std::cout << name << " BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << _name << " BraiiiiiiinnnzzzZ..." << std::endl;
 }

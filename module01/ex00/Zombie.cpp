@@ -7,11 +7,12 @@ void	Zombie::getName(std::string getname)
 
 Zombie::Zombie(std::string name)
 {
-	std::cout << "Zombies" << name << " zombie was created on the stack" << std::endl;
+	this->_name = name;
+	std::cout << "Zombies " << this->_name << " zombie was created on the heap" << std::endl;
 }
 Zombie::Zombie()
 {
-	std::cout << "Zombies" << _name << " was created dynamically" << std::endl;
+	std::cout << "Zombies was created on the stack" << std::endl;
 }
 Zombie::~Zombie()
 {
