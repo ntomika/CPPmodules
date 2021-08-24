@@ -8,32 +8,25 @@ const int	Fixed::_numberOfFractionalBits = 8;
 
 Fixed::Fixed()
 {
-	// std::cout << "Default constructor called" << std::endl;
 	setRawBits(0);
 }
 
 Fixed::Fixed(const int val)
 {
-	// std::cout << "Int constructor called" << std::endl;
 	setRawBits(val * (1 << _numberOfFractionalBits));
 }
 
 Fixed::Fixed(const float val)
 {
-	// std::cout << "Float constructor called" << std::endl;
 	setRawBits(roundf((val * (1 << _numberOfFractionalBits))));
 }
 
 Fixed::Fixed(const Fixed &fixed)
 {
-	// std::cout << "Copy constructor called" << std::endl;
 	this->operator=(fixed);
 }
 
-Fixed::~Fixed()
-{
-	// std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed() {}
 
 /* ----------------------------*/
 /* -> Перегрузка операторов <- */
@@ -41,7 +34,6 @@ Fixed::~Fixed()
 
 Fixed & Fixed::operator= (const Fixed &f)
 {
-	// std::cout << "Assignation operator called" << std::endl;
 	_fixedPointValue = f.getRawBits();
 	return (*this);
 }
@@ -104,9 +96,19 @@ bool	Fixed::operator<= (const Fixed &f) const
 	return (this->toFloat() <= f.toFloat());
 }
 
-/* ----------------------------------------------------*/
-/* -> Перегрузка операторов инкремента и декремента <- */
-/* --------------------------------------------------- */
+bool	Fixed::operator== (const Fixed &f) const
+{
+	return (this->toFloat() == f.toFloat());
+}
+
+bool	Fixed::operator!= (const Fixed &f) const
+{
+	return (this->toFloat() != f.toFloat());
+}
+
+/* ------------------------------------------------------*/
+/* -> Перегрузка операторов инкрементов и декрементов <- */
+/* ----------------------------------------------------- */
 
 Fixed	& Fixed::operator++(void)
 {
@@ -140,14 +142,32 @@ Fixed	Fixed::operator--(int)
 /* -> Методы класса <- */
 /* ------------------- */
 
-int	Fixed::getRawBits(void) const
+Fixed & Fixed::max ( Fixed &val_1, Fixed &val_2 )
 {
-	return this->_fixedPointValue;
+	if (val_1 > val_2)
+		return val_1;
+	return (val_2);
 }
 
-void	Fixed::setRawBits(const int raw)
+Fixed & Fixed::min ( Fixed &val_1, Fixed &val_2 )
 {
-	this->_fixedPointValue = raw;
+	if (val_1 < val_2)
+		return val_1;
+	return (val_2);
+}
+
+const Fixed & Fixed::max (const Fixed &val_1, const Fixed &val_2 )
+{
+	if (val_1 > val_2)
+		return val_1;
+	return (val_2);
+}
+
+const Fixed & Fixed::min (const Fixed &val_1,const Fixed &val_2 )
+{
+	if (val_1 < val_2)
+		return val_1;
+	return (val_2);
 }
 
 float	Fixed::toFloat(void) const
@@ -158,4 +178,14 @@ float	Fixed::toFloat(void) const
 int	Fixed::toInt(void) const
 {
 	return ((getRawBits()) / ((1 << _numberOfFractionalBits)));
+}
+
+int	Fixed::getRawBits(void) const
+{
+	return this->_fixedPointValue;
+}
+
+void	Fixed::setRawBits(const int raw)
+{
+	this->_fixedPointValue = raw;
 }

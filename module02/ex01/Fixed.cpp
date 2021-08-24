@@ -75,4 +75,3 @@ int	Fixed::toInt(void) const
 {
 	return ((getRawBits()) / ((1 << _numberOfFractionalBits)));
 }
-

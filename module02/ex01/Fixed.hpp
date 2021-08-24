@@ -11,8 +11,8 @@ private:
 	static const int	_numberOfFractionalBits;
 public:
 	Fixed();
-	Fixed( const int a );
-	Fixed( const float b );
+	Fixed( const int val );
+	Fixed( const float val );
 	~Fixed();
 	Fixed( const Fixed &fixed );
 
