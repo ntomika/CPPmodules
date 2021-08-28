@@ -9,7 +9,7 @@ FragTrap::FragTrap()
 	std::cout << "Costructor FragTrap call for " << _name << std::endl;
 }
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	this->_name = name;
 	this->_hitpoints = 100;
@@ -30,6 +30,13 @@ std::ostream& operator<< (std::ostream &out, const FragTrap &frag)
 	<< frag.getEnergy() << std::endl
 	<< frag.getDamage();
 	return out;
+}
+
+void	FragTrap::attack(std::string const & target)
+{
+	std::cout << "FragTrap " << _name
+	<< " attack " << target << ", causing "
+	<< _attackDamage << " points of damage!" << std::endl;
 }
 
 void	FragTrap::highFivesGuys(void)

@@ -13,6 +13,7 @@ public:
 	~ScavTrap();
 
 	void	guardGate();
+	void	attack(std::string const & target);
 };
 
 std::ostream& operator<< (std::ostream &out, const ScavTrap &scav);

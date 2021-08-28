@@ -11,9 +11,9 @@ public:
 	ClapTrap(std::string name);
 	~ClapTrap();
 
-	void attack(std::string const & target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	void	attack(std::string const & target);
+	void	takeDamage(unsigned int amount);
+	void	beRepaired(unsigned int amount);
 
 	std::string		getName() const;
 	unsigned int	getHitpoint() const;

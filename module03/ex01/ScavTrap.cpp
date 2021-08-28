@@ -9,7 +9,7 @@ ScavTrap::ScavTrap()
 	std::cout << "Default costructor ScavTrap call for " << _name << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	this->_name = name;
 	_hitpoints = 100;
@@ -30,6 +30,13 @@ std::ostream& operator<< (std::ostream &out, const ScavTrap &scav)
 	<< scav.getEnergy() << std::endl
 	<< scav.getDamage();
 	return out;
+}
+
+void	ScavTrap::attack(std::string const & target)
+{
+	std::cout << "ScavTrap " << _name
+	<< " attack " << target << ", causing "
+	<< _attackDamage << " points of damage!" << std::endl;
 }
 
 void	ScavTrap::guardGate()
