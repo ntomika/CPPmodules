@@ -4,6 +4,7 @@ int	main()
 {
 	ClapTrap name("GREEN");
 
+	std::cout << name << std::endl;
 	name.attack("BLACK");
 	name.takeDamage(20);
 	name.beRepaired(10);

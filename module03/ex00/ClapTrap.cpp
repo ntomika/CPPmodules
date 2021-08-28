@@ -6,12 +6,7 @@ ClapTrap::ClapTrap()
 	_hitpoints = 10;
 	_energyPoints = 10;
 	_attackDamage = 0;
-	std::cout << "ClapTrap " << _name
-	<< " ready to attack." << std::endl
-	<< "\t*** Starting data: ***"<< std::endl
-	<<" \t -> hitpoints: " << _hitpoints << std::endl
-	<< "\t -> energy points: " << _energyPoints << std::endl
-	<< "\t -> attack damage: " << _attackDamage << std::endl;
+	std::cout << "Default costructor ClapTrap call for " << _name << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
@@ -20,17 +15,12 @@ ClapTrap::ClapTrap(std::string name)
 	_hitpoints = 10;
 	_energyPoints = 10;
 	_attackDamage = 0;
-	std::cout << "ClapTrap " << _name
-	<< " ready to attack." << std::endl
-	<< "\t*** Starting data: ***"<< std::endl
-	<<" \t -> hitpoints: " << _hitpoints << std::endl
-	<< "\t -> energy points: " << _energyPoints << std::endl
-	<< "\t -> attack damage: " << _attackDamage << std::endl;
+	std::cout << "Costructor ClapTrap call for " << _name << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Opponents destroyed!" << std::endl;
+	std::cout << "Destructor ClapTrap call for " << _name << std::endl;
 }
 
 void	ClapTrap::attack(std::string const & target)
@@ -42,12 +32,45 @@ void	ClapTrap::attack(std::string const & target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "increased damage by " << amount << std::endl;
+	std::cout << "changing the parameter [attack damage] to value " 
+	<< amount << std::endl;
 	_attackDamage += amount;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << "restoration of health on " << amount << std::endl;
+	std::cout << "changing the parameter [energy points] to value " << amount << std::endl;
 	_energyPoints += amount;
+}
+
+std::ostream& operator<< (std::ostream &out, const ClapTrap &clap)
+{
+	out << clap.getName() << std::endl
+	<< clap.getHitpoint() << std::endl
+	<< clap.getEnergy() << std::endl
+	<< clap.getDamage();
+	return out;
+}
+
+std::string ClapTrap::getName() const
+{
+	return this->_name;
+}
+
+unsigned int	ClapTrap::getHitpoint() const
+{
+	std::cout << " \t -> [hitpoints]: ";
+	return this->_hitpoints;
+}
+
+unsigned int	ClapTrap::getEnergy() const
+{
+	std::cout << "\t -> [energy points]: ";
+	return this->_energyPoints;
+}
+
+unsigned int	ClapTrap::getDamage() const
+{
+	std::cout << "\t -> [attack damage]: ";
+	return this->_attackDamage;
 }

@@ -32,7 +32,7 @@ void	ClapTrap::attack(std::string const & target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "changing the parameter [attack damage] to value " 
+	std::cout << "changing the parameter [attack damage] to value "
 	<< amount << std::endl;
 	_attackDamage += amount;
 	std::cout << "now [attack damage] -> " << _attackDamage << std::endl;
@@ -40,7 +40,8 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << "changing the parameter [energy points] to value " << amount << std::endl;
+	std::cout << "changing the parameter [energy points] to value "
+	<< amount << std::endl;
 	_energyPoints += amount;
 	std::cout << "now [energy points] -> " << _energyPoints << std::endl;
 }
