@@ -12,6 +12,12 @@ public:
 
 	void	attack(std::string const & target);
 	void	highFivesGuys(void);
+
+	unsigned int	getFragHitpoint();
+	unsigned int	getFragDamage();
+private:
+	unsigned int	_hitpoints_Frag;
+	unsigned int	_attackDamage_Frag;
 };
 
 std::ostream& operator<< (std::ostream &out, const FragTrap &frag);

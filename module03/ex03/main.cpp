@@ -17,8 +17,8 @@ int	main()
 
 	std::cout << name2 << std::endl;
 	name2.attack("ZONE2");
-	name2.takeDamage(30);
-	name2.beRepaired(40);
+	name2.takeDamage(10);
+	name2.beRepaired(20);
 	name2.guardGate();
 	std::cout << std::endl << std::endl;
 
@@ -27,8 +27,8 @@ int	main()
 
 	std::cout << name3 << std::endl;
 	name3.attack("ZONE3");
-	name3.takeDamage(50);
-	name3.beRepaired(60);
+	name3.takeDamage(10);
+	name3.beRepaired(20);
 	name3.highFivesGuys();
 	std::cout << std::endl << std::endl;
 	
@@ -37,8 +37,8 @@ int	main()
 
 	std::cout << name4 << std::endl;
 	name4.attack("ZONE4");
-	name4.takeDamage(70);
-	name4.beRepaired(80);
+	name4.takeDamage(10);
+	name4.beRepaired(20);
 	name4.guardGate();
 	name4.highFivesGuys();
 	name4.whoAmI();

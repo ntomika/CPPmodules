@@ -5,6 +5,7 @@ ScavTrap::ScavTrap()
 	this->_name = "name_scav";
 	_hitpoints = 100;
 	_energyPoints = 50;
+	_energyPoints_Scav = 50;
 	_attackDamage = 20;
 	std::cout << "Default costructor ScavTrap call for " << _name << std::endl;
 }
@@ -14,6 +15,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	this->_name = name;
 	_hitpoints = 100;
 	_energyPoints = 50;
+	_energyPoints_Scav = 50;
 	_attackDamage = 20;
 	std::cout << "Costructor ScavTrap call for " << _name << std::endl;
 }
@@ -42,4 +44,9 @@ void	ScavTrap::attack(std::string const & target)
 void	ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap have enterred in Gate keeper mode" << std::endl;
+}
+
+unsigned int ScavTrap::getScavEnergy()
+{
+	return this->_energyPoints_Scav;
 }

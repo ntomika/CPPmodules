@@ -32,9 +32,14 @@ void	ClapTrap::attack(std::string const & target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "changing the parameter [attack damage] to value "
+	std::cout << "changing the parameter [attack damage] to value " 
 	<< amount << std::endl;
-	_attackDamage += amount;
+	if (_attackDamage <= amount)
+	{
+		std::cout << "death" << std::endl;
+		return ;
+	}
+	_attackDamage -= amount;
 	std::cout << "now [attack damage] -> " << _attackDamage << std::endl;
 }
 

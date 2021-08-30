@@ -3,9 +3,9 @@
 DiamondTrap::DiamondTrap()
 {
 	this->_name = "name_diamond";
-	this->_hitpoints = FragTrap::_hitpoints;
-	this->_energyPoints = ScavTrap::_energyPoints;
-	this->_attackDamage = FragTrap::_attackDamage;
+	this->_hitpoints = getFragHitpoint();
+	this->_energyPoints = getScavEnergy();
+	this->_attackDamage = getFragDamage();
 	std::cout << "Default costructor DiamondTrap call for " << _name << std::endl;
 }
 
@@ -13,9 +13,9 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Scav
 {
 	this->_name = name;
 	ClapTrap::_name = name + "_clap_name";
-	this->_hitpoints = FragTrap::_hitpoints;
-	this->_energyPoints = ScavTrap::_energyPoints;
-	this->_attackDamage = FragTrap::_attackDamage;
+	this->_hitpoints = getFragHitpoint();
+	this->_energyPoints = getScavEnergy();
+	this->_attackDamage = getFragDamage();
 	std::cout << "Costructor DiamondTrap call for " << _name << std::endl;
 }
 
@@ -31,9 +31,14 @@ void	DiamondTrap::attack(std::string const & target)
 
 void	DiamondTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "changing the parameter [attack damage] to value "
+	std::cout << "changing the parameter [attack damage] to value " 
 	<< amount << std::endl;
-	_attackDamage += amount;
+	if (_attackDamage <= amount)
+	{
+		std::cout << "death" << std::endl;
+		return ;
+	}
+	_attackDamage -= amount;
 	std::cout << "now [attack damage] -> " << _attackDamage << std::endl;
 }
 

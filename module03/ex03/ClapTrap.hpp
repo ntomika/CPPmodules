@@ -21,10 +21,10 @@ public:
 	unsigned int	getDamage() const;
 
 protected:
-	std::string	_name;
-	int			_hitpoints;
-	int			_energyPoints;
-	int			_attackDamage;
+	std::string		_name;
+	unsigned int	_hitpoints;
+	unsigned int	_energyPoints;
+	unsigned int	_attackDamage;
 };
 
 std::ostream& operator<< (std::ostream &out, const ClapTrap &clap);
