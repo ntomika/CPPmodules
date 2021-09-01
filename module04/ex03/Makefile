@@ -1,10 +1,12 @@
-NAME		= Polymorphism
+NAME		= AbstractClass
+
 SRCS		= main.cpp \
-			Animal.cpp \
-			Dog.cpp \
-			Cat.cpp \
-			WrongAnimal.cpp \
-			WrongCat.cpp
+			AMateria.cpp \
+			Character.cpp \
+			Cure.cpp \
+			Ice.cpp \
+			MateriaSource.cpp
+			
 CXX			= clang++
 CXXFLAGS	= -Wall -Wextra -Werror
 OBJS		= $(SRCS:.cpp=.o)
