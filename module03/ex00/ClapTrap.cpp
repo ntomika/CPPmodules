@@ -15,7 +15,12 @@ ClapTrap::ClapTrap(std::string name)
 	_hitpoints = 10;
 	_energyPoints = 10;
 	_attackDamage = 0;
-	std::cout << "Costructor ClapTrap call for " << _name << std::endl;
+	std::cout << "Constructor ClapTrap call for " << _name << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &clap)
+{
+	this->operator=(clap);
 }
 
 ClapTrap::~ClapTrap()
@@ -79,4 +84,12 @@ unsigned int	ClapTrap::getDamage() const
 {
 	std::cout << "\t -> [attack damage]: ";
 	return this->_attackDamage;
+}
+
+ClapTrap & ClapTrap::operator= (const ClapTrap &clap)
+{
+	this->_attackDamage = clap.getDamage();
+	this->_energyPoints = clap.getEnergy();
+	this->_hitpoints = clap.getHitpoint();
+	return (*this);
 }

@@ -9,11 +9,14 @@ class ClapTrap
 public:
 	ClapTrap();
 	ClapTrap(std::string name);
+	ClapTrap(const ClapTrap &clap);
 	~ClapTrap();
 
 	void	attack(std::string const & target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
+
+	ClapTrap &operator= (const ClapTrap &clap);
 
 	std::string		getName() const;
 	unsigned int	getHitpoint() const;

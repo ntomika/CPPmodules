@@ -6,7 +6,7 @@ ClapTrap::ClapTrap()
 	this->_hitpoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;
-	std::cout << "Default costructor ClapTrap call for " << _name << std::endl;
+	std::cout << "Default constructor ClapTrap call for " << _name << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
@@ -15,7 +15,7 @@ ClapTrap::ClapTrap(std::string name)
 	this->_hitpoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;
-	std::cout << "Costructor ClapTrap call for " << _name << std::endl;
+	std::cout << "Constructor ClapTrap call for " << _name << std::endl;
 }
 
 ClapTrap::~ClapTrap()
@@ -28,6 +28,11 @@ void	ClapTrap::attack(std::string const & target)
 	std::cout << "ClapTrap " << _name
 	<< " attack " << target << ", causing "
 	<< _attackDamage << " points of damage!" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &clap)
+{
+	this->operator=(clap);
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -81,4 +86,12 @@ unsigned int	ClapTrap::getDamage() const
 {
 	std::cout << "\t -> [attack damage]: ";
 	return this->_attackDamage;
+}
+
+ClapTrap & ClapTrap::operator= (const ClapTrap &clap)
+{
+	this->_attackDamage = clap.getDamage();
+	this->_energyPoints = clap.getEnergy();
+	this->_hitpoints = clap.getHitpoint();
+	return (*this);
 }

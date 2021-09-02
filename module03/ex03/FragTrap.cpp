@@ -19,7 +19,12 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;
 	this->_attackDamage_Frag = 30;
-	std::cout << "Costructor FragTrap call for " << _name << std::endl;
+	std::cout << "Constructor FragTrap call for " << _name << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap &frag)
+{
+	this->operator=(frag);
 }
 
 FragTrap::~FragTrap()

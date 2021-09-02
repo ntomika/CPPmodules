@@ -6,7 +6,7 @@ ScavTrap::ScavTrap()
 	_hitpoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
-	std::cout << "Default costructor ScavTrap call for " << _name << std::endl;
+	std::cout << "Default constructor ScavTrap call for " << _name << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
@@ -15,12 +15,17 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	_hitpoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
-	std::cout << "Costructor ScavTrap call for " << _name << std::endl;
+	std::cout << "Constructor ScavTrap call for " << _name << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
 	std::cout << "Destructor ScavTrap call for " << _name << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &scav)
+{
+	this->operator=(scav);
 }
 
 std::ostream& operator<< (std::ostream &out, const ScavTrap &scav)

@@ -6,7 +6,7 @@ DiamondTrap::DiamondTrap()
 	this->_hitpoints = getFragHitpoint();
 	this->_energyPoints = getScavEnergy();
 	this->_attackDamage = getFragDamage();
-	std::cout << "Default costructor DiamondTrap call for " << _name << std::endl;
+	std::cout << "Default constructor DiamondTrap call for " << _name << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
@@ -16,7 +16,12 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Scav
 	this->_hitpoints = getFragHitpoint();
 	this->_energyPoints = getScavEnergy();
 	this->_attackDamage = getFragDamage();
-	std::cout << "Costructor DiamondTrap call for " << _name << std::endl;
+	std::cout << "Constructor DiamondTrap call for " << _name << std::endl;
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap &diamond)
+{
+	this->operator=(diamond);
 }
 
 DiamondTrap::~DiamondTrap()
