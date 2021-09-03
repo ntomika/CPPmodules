@@ -7,9 +7,11 @@ SRCS		= main.cpp \
 			Brain.cpp
 			
 CXX			= clang++
-CXXFLAGS	= -Wall -Wextra -Werror
+CXXFLAGS	= -Wall -Wextra -Werror -MMD
 OBJS		= $(SRCS:.cpp=.o)
 all:		$(NAME)
+
+-include $(OBJS:.o:.d)
 
 $(NAME):	$(OBJS)
 			$(CXX) $(CXXFLAGS) $(OBJS) -I. -o $(NAME)
@@ -19,6 +21,8 @@ clean:
 
 fclean:		clean
 			rm -rf $(NAME)
+			rm -rf *.d
+
 
 re:			fclean all
 

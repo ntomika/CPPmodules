@@ -12,6 +12,11 @@ Animal::Animal()
 	std::cout << "Animal {type " << _type << "} created" << std::endl;
 }
 
+Animal::Animal(const Animal &animal)
+{
+	this->operator=(animal);
+}
+
 Animal::~Animal()
 {
 	std::cout << "Animal {type " << _type << "} destroyed" << std::endl;
@@ -25,4 +30,10 @@ std::string		Animal::getType() const
 void	Animal::makeSound() const
 {
 	std::cout << "Animal say 'meow' and 'woof'" << std::endl;
+}
+
+Animal & Animal::operator= (const Animal &clap)
+{
+	this->_type = clap.getType();
+	return (*this);
 }

@@ -19,15 +19,6 @@ Cat::~Cat()
 	delete this->_brain;
 }
 
-Cat & Cat::operator=(const Cat & cat)
-{
-	this->_brain = new Brain();
-	this->_type = cat.getType();
-	for (int i = 0; i < 100; i++)
-		this->_brain->getIdeas()[i] = cat._brain->getIdeas()[i];
-	return *this;
-}
-
 void	Cat::makeSound() const
 {
 	std::cout << "Cat say 'meow'" << std::endl;
@@ -36,4 +27,13 @@ void	Cat::makeSound() const
 Brain*	Cat::getBrain( void )
 {
 	return this->_brain;
+}
+
+Cat & Cat::operator=(const Cat & cat)
+{
+	this->_brain = new Brain();
+	this->_type = cat.getType();
+	for (int i = 0; i < 100; i++)
+		this->_brain->getIdeas()[i] = cat._brain->getIdeas()[i];
+	return *this;
 }

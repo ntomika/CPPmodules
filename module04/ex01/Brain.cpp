@@ -12,6 +12,12 @@ Brain::Brain()
 	}
 }
 
+Brain::Brain(const Brain & brain)
+{
+	std::cout << "Copy Brain" << std::endl;
+	this->operator=(brain);
+}
+
 std::string	*Brain::getIdeas()
 {
 	return this->ideas;
@@ -20,4 +26,11 @@ std::string	*Brain::getIdeas()
 Brain::~Brain()
 {
 	std::cout << "Brain was deleted" << std::endl;
+}
+
+Brain & Brain::operator=(const Brain & brain)
+{
+	for(int i = 0; i < 100; i++)
+		this->ideas[i] = brain.ideas[i];
+	return *this;
 }

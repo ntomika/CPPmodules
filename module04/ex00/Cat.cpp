@@ -6,6 +6,11 @@ Cat::Cat() : Animal("cat")
 	std::cout << "Cat created" << std::endl;
 }
 
+Cat::Cat(const Cat &cat)
+{
+	this->operator=(cat);
+}
+
 Cat::~Cat()
 {
 	std::cout << "Cat destroyed" << std::endl;

@@ -6,6 +6,11 @@ Dog::Dog() : Animal("dog")
 	std::cout << "Dog created" << std::endl;
 }
 
+Dog::Dog(const Dog &dog)
+{
+	this->operator=(dog);
+}
+
 Dog::~Dog()
 {
 	std::cout << "Dog destroyed" << std::endl;

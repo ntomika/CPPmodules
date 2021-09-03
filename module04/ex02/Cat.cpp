@@ -7,7 +7,7 @@ Cat::Cat() : Animal("cat")
 	this->_brain = new Brain();
 }
 
-Cat::Cat(const Cat & cat)
+Cat::Cat(const Cat & cat) : Animal("cat")
 {
 	std::cout << "Copy Cat" << std::endl;
 	this->operator=(cat);

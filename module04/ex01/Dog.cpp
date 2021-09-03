@@ -19,6 +19,11 @@ Dog::~Dog()
 	delete this->_brain;
 }
 
+void	Dog::makeSound() const
+{
+	std::cout << "Dog say 'woof'" << std::endl;
+}
+
 Dog & Dog::operator=(const Dog & dog)
 {
 	this->_brain = new Brain();
@@ -26,9 +31,4 @@ Dog & Dog::operator=(const Dog & dog)
 	for (int i = 0; i < 100; i++)
 		this->_brain->getIdeas()[i] = dog._brain->getIdeas()[i];
 	return *this;
-}
-
-void	Dog::makeSound() const
-{
-	std::cout << "Dog say 'woof'" << std::endl;
 }
