@@ -29,7 +29,6 @@ int	main()
 	}
 	std::cout << b2 << std::endl << std::endl;
 
-	Bureaucrat b3("Alex", 151);
 
 	try
 	{
@@ -39,7 +38,16 @@ int	main()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	std::cout << b3 << std::endl;
+	std::cout << std::endl;
+
+	try
+	{
+		Bureaucrat b3("Alex", -2);
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
 	return 0;
 }
