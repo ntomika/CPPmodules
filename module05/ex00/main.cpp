@@ -3,7 +3,6 @@
 int	main()
 {
 	Bureaucrat b1("John", 150);
-
 	std::cout << b1 << std::endl;
 	try
 	{
@@ -17,7 +16,6 @@ int	main()
 
 
 	Bureaucrat b2("Sam", 1);
-
 	std::cout << b2 << std::endl;
 	try
 	{
@@ -40,14 +38,18 @@ int	main()
 	}
 	std::cout << std::endl;
 
+
+	Bureaucrat b4("Poul", 40);
+	std::cout << b4 << std::endl;
 	try
 	{
-		Bureaucrat b3("Alex", -2);
+		b4.incrementGrade();
 	}
 	catch(std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << b4 << std::endl;
 
 	return 0;
 }

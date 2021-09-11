@@ -1,5 +1,5 @@
 NAME		= Bureaucrat
-SRCS		= main.cpp Bureaucrat.cpp
+SRCS		= main.cpp Bureaucrat.cpp Form.cpp
 CXX			= clang++
 CXXFLAGS	= -Wall -Wextra -Werror -MMD
 OBJS		= $(SRCS:.cpp=.o)
