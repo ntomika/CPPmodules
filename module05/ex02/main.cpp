@@ -1,15 +1,21 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-void	testShrubbery()
+void	testForm()
 {
 	ShrubberyCreationForm house("house");
+	RobotomyRequestForm robot("robot");
+	PresidentialPardonForm president("Vovka");
 	Bureaucrat b1("John", 40);
 
 	try
 	{
 		b1.executeForm(house);
+		b1.executeForm(robot);
+		b1.executeForm(president);
 	}
 	catch(const std::exception& e)
 	{
@@ -62,11 +68,8 @@ int	main()
 	std::cout << "\x1b[32;1m	Test <Bureaucrat>: \x1b[0m" << std::endl;
 	testBureaucrat();
 
-	// std::cout << "\x1b[32;1m Test <Form>: \x1b[0m" << std::endl;
-	// testForm();
-
-	std::cout << "\x1b[32;1m	Test <ShrubberyCreationForm>: \x1b[0m" << std::endl;
-	testShrubbery();
+	std::cout << "\x1b[32;1m	Test <Form>: \x1b[0m" << std::endl;
+	testForm();
 
 	return 0;
 }

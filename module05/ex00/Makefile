@@ -9,16 +9,13 @@ all:		$(NAME) $(DONE)
 
 $(NAME):	$(OBJS)
 			$(CXX) $(CXXFLAGS) $(OBJS) -I. -o $(NAME)
-			mv *.o objs/
-			mv *.d files_d/
 
 clean:
 			rm -rf $(OBJS)
 
 fclean:		clean
 			rm -rf $(NAME)
-			rm -rf objs/*
-			rm -rf files_d/*
+			rm -rf *.d
 
 
 re:			fclean all

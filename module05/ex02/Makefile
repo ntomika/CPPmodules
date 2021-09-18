@@ -1,5 +1,10 @@
 NAME		= Bureaucrat
-SRCS		= main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp
+SRCS		= main.cpp \
+			Bureaucrat.cpp \
+			Form.cpp \
+			ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp
 CXX			= clang++
 CXXFLAGS	= -Wall -Wextra -Werror -MMD
 OBJS		= $(SRCS:.cpp=.o)
@@ -9,16 +14,14 @@ all:		$(NAME) $(DONE)
 
 $(NAME):	$(OBJS)
 			$(CXX) $(CXXFLAGS) $(OBJS) -I. -o $(NAME)
-			mv *.o objs/
-			mv *.d files_d/
+
 
 clean:
 			rm -rf $(OBJS)
 
 fclean:		clean
 			rm -rf $(NAME)
-			rm -rf objs/*
-			rm -rf files_d/*
+			rm -rf *.d
 
 
 re:			fclean all

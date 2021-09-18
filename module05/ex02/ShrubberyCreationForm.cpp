@@ -1,5 +1,9 @@
 #include "ShrubberyCreationForm.hpp"
 
+/* -----------------------------
+|	Констуркторы и деструктор	|
+--------------------------------*/
+
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : 
 	Form(target, 100, 50) {}
 
@@ -15,6 +19,10 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 	this->Form::operator=(scf);
 	return *this;
 }
+
+/* -------------------------------------
+|	Метод класса ShrubberyCreationForm	|
+---------------------------------------- */
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
@@ -57,6 +65,4 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 			<< "______________###__####__##_###__________________ " << std::endl
 			<< "______________##__##__##__#__###________________ " << std::endl
 			<< "____________ ##__##____##_#___##_________________" << std::endl;
-	
-	std::cout << "file done" << std::endl;
 }
