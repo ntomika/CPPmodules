@@ -82,6 +82,20 @@ void	Bureaucrat::signForm(Form & form)
 	
 }
 
+void	Bureaucrat::executeForm(Form const & form)
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		return ;
+	}
+	std::cout << this->getName() << " executes " << form.getName() << std::endl;
+}
+
 /* -----------------------------
 |	Перегрузка оператора вывода	|
 -------------------------------- */
