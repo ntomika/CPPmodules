@@ -1,12 +1,17 @@
-#include <iostream>
+#include "convert.hpp"
 
 void	output(char *s)
 {
 	std::cout << "string:	" << s << std::endl;
-	std::cout << "char:	" << std::endl;
-	std::cout << "int:	" << std::endl;
-	std::cout << "float:	" << std::endl;
-	std::cout << "double:	" << std::endl;
+
+	std::cout << "char:	";
+	convert_char(s);
+	std::cout << "int:	";
+	// convert_int();
+	// std::cout << "float:	";
+	// convert_float();
+	// std::cout << "double:	";
+	// convert_double();
 }
 
 int	main(int ac, char **av)
