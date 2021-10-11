@@ -1,11 +1,12 @@
 NAME		= Bureaucrat
 SRCS		= main.cpp Bureaucrat.cpp
 CXX			= clang++
-CXXFLAGS	= -Wall -Wextra -Werror -MMD
+CXXFLAGS	= -Wall -Wextra -Werror
 OBJS		= $(SRCS:.cpp=.o)
 all:		$(NAME) $(DONE)
 
--include $(OBJS:.o:.d)
+main.o: main.cpp Bureaucrat.hpp
+Bureaucrat.o: Bureaucrat.cpp Bureaucrat.hpp
 
 $(NAME):	$(OBJS)
 			$(CXX) $(CXXFLAGS) $(OBJS) -I. -o $(NAME)
@@ -15,8 +16,6 @@ clean:
 
 fclean:		clean
 			rm -rf $(NAME)
-			rm -rf *.d
-
 
 re:			fclean all
 

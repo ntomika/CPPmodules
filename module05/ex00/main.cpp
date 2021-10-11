@@ -51,5 +51,17 @@ int	main()
 	}
 	std::cout << b4 << std::endl;
 
+	Bureaucrat b5("Bob", 40);
+	std::cout << b5 << std::endl;
+	try
+	{
+		b5.decrementGrade();
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << b5 << std::endl;
+
 	return 0;
 }

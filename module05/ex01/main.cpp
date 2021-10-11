@@ -32,12 +32,13 @@ void testBureaucrat()
 	std::cout << std::endl;
 	try
 	{
-		Bureaucrat b3("Alex", 151);
+		Bureaucrat b3("Alex", 0);
 	}
 	catch(std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << std::endl;
 	std::cout << std::endl;
 }
 
@@ -46,7 +47,7 @@ void	testForm()
 	Form f1("Biba", 100, 50);
 	Form f2("Boba", 50, 100);
 
-	Bureaucrat b1("John", 150);
+	Bureaucrat b1("John", 110);
 	Bureaucrat b2("Poul", 40);
 
 	std::cout << f1 << std::endl;

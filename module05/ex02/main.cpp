@@ -9,7 +9,7 @@ void	testForm()
 	ShrubberyCreationForm house("house");
 	RobotomyRequestForm robot("robot");
 	PresidentialPardonForm president("Vovka");
-	Bureaucrat b1("John", 40);
+	Bureaucrat b1("John", 5);
 
 	try
 	{
@@ -54,7 +54,7 @@ void testBureaucrat()
 	std::cout << std::endl;
 	try
 	{
-		Bureaucrat b3("Alex", 151);
+		Bureaucrat b3("Alex", 0);
 	}
 	catch(std::exception& e)
 	{

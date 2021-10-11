@@ -35,6 +35,6 @@ void	PresidentialPardonForm::execute(const Bureaucrat &executor) const
 		throw Form::GradeTooHighException();
 	if (!this->getGradeToSign())
 		throw Form::FormNotSigned();
-	std::cout << this->getName() <<
-	"has been pardoned by Zafod Beeblebrox" << std::endl;
+	std::cout << this->getName()
+	<< "has been pardoned by Zafod Beeblebrox" << std::endl;
 }
