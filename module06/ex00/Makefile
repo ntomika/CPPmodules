@@ -1,9 +1,13 @@
 NAME		= Cast
-SRCS		= main.cpp convert.cpp
+SRCS		= main.cpp convert.cpp utils.cpp
 CXX			= clang++
 CXXFLAGS	= -Wall -Wextra -Werror
 OBJS		= $(SRCS:.cpp=.o)
 all:		$(NAME) $(DONE)
+
+main.o: main.cpp convert.hpp
+convert.o: convert.cpp convert.hpp
+utils.o: utils.cpp convert.hpp
 
 $(NAME):	$(OBJS)
 			$(CXX) $(CXXFLAGS) $(OBJS) -I. -o $(NAME)

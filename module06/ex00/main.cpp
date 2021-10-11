@@ -2,16 +2,16 @@
 
 void	output(char *s)
 {
-	std::cout << "string:	" << s << std::endl;
+	// std::cout << "string:	" << s << std::endl;
 
 	std::cout << "char:	";
 	convert_char(s);
 	std::cout << "int:	";
-	// convert_int();
-	// std::cout << "float:	";
-	// convert_float();
-	// std::cout << "double:	";
-	// convert_double();
+	convert_int(s);
+	std::cout << "float:	";
+	convert_float(s);
+	std::cout << "double:	";
+	convert_double(s);
 }
 
 int	main(int ac, char **av)
