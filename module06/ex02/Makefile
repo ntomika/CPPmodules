@@ -1,13 +1,12 @@
-NAME		= Cast
-SRCS		= main.cpp convert.cpp utils.cpp
+NAME		= RealType
+SRCS		= main.cpp Base.cpp
 CXX			= clang++
 CXXFLAGS	= -Wall -Wextra -Werror
 OBJS		= $(SRCS:.cpp=.o)
 all:		$(NAME)
 
-main.o: main.cpp convert.hpp
-convert.o: convert.cpp convert.hpp
-utils.o: utils.cpp convert.hpp
+main.o: main.cpp A.hpp Base.hpp B.hpp C.hpp
+Base.o: Base.cpp Base.hpp
 
 $(NAME):	$(OBJS)
 			$(CXX) $(CXXFLAGS) $(OBJS) -I. -o $(NAME)
@@ -17,7 +16,6 @@ clean:
 
 fclean:		clean
 			rm -rf $(NAME)
-			rm -rf *.d
 
 
 re:			fclean all
