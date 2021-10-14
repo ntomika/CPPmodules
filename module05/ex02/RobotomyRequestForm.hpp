@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Form.hpp"
+#include <cstdlib>
 
 class Bureaucrat;
 
