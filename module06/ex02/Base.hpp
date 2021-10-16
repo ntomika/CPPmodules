@@ -1,9 +1,6 @@
-#ifndef EX02_BASE_HPP
-#define EX02_BASE_HPP
+#pragma once
 
 class Base{
 public:
 	virtual ~Base();
 };
-
-#endif

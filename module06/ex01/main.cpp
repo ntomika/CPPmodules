@@ -8,12 +8,12 @@ uintptr_t serialize(Data *ptr)
 	return intPtr;
 }
 
-Data *deserialize(uintptr_t raw)
+Data *deserialize(uintptr_t ptr)
 {
-	Data *ptr;
+	Data *otherPtr;
 
-	ptr = reinterpret_cast<Data *>(raw);
-	return (ptr);
+	otherPtr = reinterpret_cast<Data *>(ptr);
+	return otherPtr;
 }
 
 int main()
@@ -21,22 +21,23 @@ int main()
 	Data* first = new Data();
 	Data* second;
 
-	first->name = "Bob";
+	first->name = "This is first name";
 
 	std::cout << "Struct address:	" << first << std::endl;
 	std::cout << "Struct name:	" << first->name << std::endl;
-	std::cout << "- - - - - - - - - -" << std::endl;
+
+	std::cout << "~~~~~~~~~~~~~~~~~~~" << std::endl;
 
 	std::cout << "serialization:"<< std::endl;
-	uintptr_t raw = serialize(first);
-	std::cout << "After serialize: " << raw << std::endl;
-	std::cout << "- - - - - - - - - -" << std::endl;
+	uintptr_t ptr = serialize(first);
+	std::cout << "value after serialize: " << ptr << std::endl;
+
+	std::cout << "~~~~~~~~~~~~~~~~~~~" << std::endl;
 
 	std::cout << "deserialization:"<< std::endl;
-	second = deserialize(raw);
+	second = deserialize(ptr);
 	std::cout << "Struct address:	" << second << std::endl;
 	std::cout << "Struct name:	" << second->name << std::endl;
-
 
 	delete first;
 

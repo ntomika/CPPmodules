@@ -5,7 +5,7 @@ CXXFLAGS	= -Wall -Wextra -Werror
 OBJS		= $(SRCS:.cpp=.o)
 all:		$(NAME)
 
-main.o: main.cpp A.hpp Base.hpp B.hpp C.hpp
+main.o: main.cpp A.hpp B.hpp C.hpp Base.hpp 
 Base.o: Base.cpp Base.hpp
 
 $(NAME):	$(OBJS)

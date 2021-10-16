@@ -8,44 +8,53 @@ Base *generate()
 {
 	int random;
 
-	srand(static_cast<unsigned int>(time(0)));
-	random = rand() % 3;
-	if(random == 0)
+	std::srand(std::time(0));
+	random = std::rand() % 100;
+	if(random >= 0 && random <= 33)
 		return (new A());
-	if(random == 1)
+	else if(random > 33 && random <= 66)
 		return (new B());
 	else
 		return (new C());
 }
 
-void identify_ptr(Base* p){
+void identify(Base* p){
 	if(dynamic_cast<A*>(p))
-		std::cout << "A\n";
+		std::cout << "A (pointer)" << std::endl;
 	if(dynamic_cast<B*>(p))
-		std::cout << "B\n";
+		std::cout << "B (pointer)" << std::endl;
 	if(dynamic_cast<C*>(p))
-		std::cout << "C\n";
+		std::cout << "C (pointer)" << std::endl;
 }
 
-void identify_ref(Base& p){
-	try{
+void identify(Base& p){
+	try
+	{
 		A a = dynamic_cast<A&>(p);
-		std::cout << "A\n";
-	}catch(std::exception &e){
+		std::cout << "A (ref)" << std::endl;
+	}
+	catch(std::exception &e)
+	{
 		std::cout << e.what() << std::endl;
 	}
 
-	try{
+	try
+	{
 		B b = dynamic_cast<B&>(p);
-		std::cout << "B\n";
-	}catch(std::exception &e){
+		std::cout << "B (ref)" << std::endl;
+	}
+	catch(std::exception &e)
+	{
 		std::cout << e.what() << std::endl;
 	}
 
-	try{
+	try
+	{
 		C c = dynamic_cast<C&>(p);
-		std::cout << "C\n";
-	}catch(std::exception &e){
+		std::cout << "C (ref)" << std::endl;
+	}
+	catch(std::exception &e)
+	{
 		std::cout << e.what() << std::endl;
 	}
 }
@@ -53,8 +62,8 @@ void identify_ref(Base& p){
 int main()
 {
 	Base *base = generate();
-	identify_ptr(base);
-	identify_ref(*base);
+	identify(base);
+	identify(*base);
 
 	delete base;
 	return 0;

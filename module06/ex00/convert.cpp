@@ -8,7 +8,7 @@ void	convert_char(char *s)
 	if (!(check_nan(CHAR, s)) || !(check_inf(CHAR, s)))
 		return ;
 	d = std::strtod(s, nullptr);
-	if (errno == ERANGE || d > SCHAR_MAX || d < SCHAR_MIN)
+	if (errno == ERANGE || d > SCHAR_MAX || d < SCHAR_MIN || (d == 0 && s[0] != '0'))
 	{
 		std::cout << "impossible" << std::endl;
 		return ;
@@ -53,8 +53,8 @@ void	convert_float(char *s)
 	}
 	decimalPart = getDecimalPart(s);
 	f = static_cast<float>(d);
-	std::cout << std::fixed << std::setprecision(decimalPart);
-	std::cout << f << "f" << std::endl;
+	std::cout << std::fixed << std::setprecision(decimalPart)
+	<< f << "f" << std::endl;
 }
 void	convert_double(char *s)
 {
