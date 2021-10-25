@@ -4,7 +4,10 @@
 |	Констуркторы и деструктор	|
 -------------------------------- */
 
-Span::Span() : _N(0) {}
+Span::Span()
+{
+	_N = 0;
+}
 
 Span::Span(unsigned int N) : _N(N), _arr() {}
 
@@ -41,6 +44,7 @@ void	Span::addNumber(int nbr)
 
 int		Span::shortestSpan()
 {
+	
 	if (_arr.size() <= 1)
 		throw Span::LenError();
 	int shortest = std::abs(_arr[1] - _arr[0]);

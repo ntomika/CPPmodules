@@ -19,6 +19,10 @@ public:
 	Span & operator=(const Span &src);
 
 	void	addNumber(int nbr);
+
+	template <class T>
+	void	addNumber(T begin, T end);
+	
 	int		shortestSpan(void);
 	int		longestSpan(void);
 
@@ -37,3 +41,12 @@ public:
 			}
 	};
 };
+
+template <class T>
+void	Span::addNumber(T begin, T end)
+{
+	for (; begin != end; ++begin)
+	{
+		this->addNumber(*begin);
+	}
+}
